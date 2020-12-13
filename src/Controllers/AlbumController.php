@@ -5,11 +5,13 @@ namespace App\Controllers;
 use App\Classes\Album\Form as AlbumForm;
 use App\Classes\Music\Collection as MusicCollection;
 use App\Classes\Tools\FilesManager;
+use App\Classes\Tools\ImageResizer;
 use App\Classes\Tools\Strings;
 use App\Classes\Tools\Uploader;
 use App\Classes\Tools\View;
 use App\Models\Album;
 use App\Models\AlbumRepository;
+use Exception;
 
 /**
  * Albums management
@@ -48,6 +50,11 @@ class AlbumController
         ]);
     }
 
+    /**
+     * @return false|string
+     *
+     * @throws Exception
+     */
     public function submitAddAlbum(array $postRequest, array $fileRequest)
     {
         $title = 'Album enregistré';
@@ -63,7 +70,7 @@ class AlbumController
             $uploader->validTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/JPG'];
             $uploader->setName($postRequest['file']);
             $uploader->uploadFile(DATA_FILE);
-            $uploader->resize(DATA_FILE . '/' . $postRequest['file'], DATA_FILE . '/' . 'tb_' . $postRequest['file'], 150, 150);
+            ImageResizer::resize(DATA_FILE . '/' . $postRequest['file'], DATA_FILE . '/' . 'tb_' . $postRequest['file'], 150, 150);
             AlbumRepository::new($album);
         } else {
             $title = "Echec de l'enregistrement";

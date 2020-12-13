@@ -12,6 +12,7 @@ use App\Classes\Music\Music;
 use App\Classes\Music\Repository as MusicRepository;
 use App\Classes\Music\Ui as MusicUi;
 use App\Classes\Tools\FilesManager;
+use App\Classes\Tools\ImageResizer;
 use App\Classes\Tools\Strings;
 use App\Classes\Tools\Uploader;
 use App\Classes\Tools\View;
@@ -80,7 +81,7 @@ try {
                     $uploader->validTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/JPG'];
                     $uploader->setName($data['file']);
                     $uploader->uploadFile(DATA_FILE);
-                    $uploader->resize(DATA_FILE . '/' . $data['file'], DATA_FILE . '/' . 'tb_' . $data['file'], 150, 150);
+                    ImageResizer::resize(DATA_FILE . '/' . $data['file'], DATA_FILE . '/' . 'tb_' . $data['file'], 150, 150);
 
                     if ($case > 1) {
                         FilesManager::deleteFile($album->getFile(), DATA_FILE);
