@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\AlbumRepository;
-use App\Models\Album;
 use App\Classes\Album\Form as AlbumForm;
 use App\Classes\Music\Collection as MusicCollection;
-use App\Classes\Tools\View;
+use App\Classes\Tools\FilesManager;
 use App\Classes\Tools\Strings;
 use App\Classes\Tools\Uploader;
-use App\Classes\Tools\FilesManager;
+use App\Classes\Tools\View;
+use App\Models\Album;
+use App\Models\AlbumRepository;
 
 /**
  * Albums management

@@ -4,18 +4,18 @@ require_once '../config/config.php';
 require_once '../config/config_db.php';
 require_once '../vendor/autoload.php';
 
-use App\Classes\Music\Repository as MusicRepository;
-use App\Classes\Album\Repository as AlbumRepository;
-use App\Classes\Music\Form as MusicForm;
 use App\Classes\Album\Form as AlbumForm;
-use App\Controllers\AlbumController;
+use App\Classes\Album\Repository as AlbumRepository;
 use App\Classes\Album\Ui as AlbumUi;
+use App\Classes\Music\Form as MusicForm;
+use App\Classes\Music\Music;
+use App\Classes\Music\Repository as MusicRepository;
 use App\Classes\Music\Ui as MusicUi;
 use App\Classes\Tools\FilesManager;
-use App\Classes\Tools\Uploader;
 use App\Classes\Tools\Strings;
+use App\Classes\Tools\Uploader;
 use App\Classes\Tools\View;
-use App\Classes\Music\Music;
+use App\Controllers\AlbumController;
 
 // initialisation des variables
 $title = '';
@@ -77,7 +77,7 @@ try {
 
                 if ($case > 0) {
                     $uploader = new Uploader('file');
-                    $uploader->validTypes = array('image/png', 'image/jpg', 'image/jpeg', 'image/JPG');
+                    $uploader->validTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/JPG'];
                     $uploader->setName($data['file']);
                     $uploader->uploadFile(DATA_FILE);
                     $uploader->resize(DATA_FILE . '/' . $data['file'], DATA_FILE . '/' . 'tb_' . $data['file'], 150, 150);
@@ -169,7 +169,7 @@ try {
         case 'modifier_musique_modif':
             $title = 'Modifications enregistrées';
             $data = $postRequest;
-            $fileData = is_array($fileRequest['file']) ? $fileRequest['file'] : array();
+            $fileData = is_array($fileRequest['file']) ? $fileRequest['file'] : [];
             if (isset($data['id'])) {
                 $id = $data['id'];
 
@@ -192,7 +192,7 @@ try {
                 if ($case > 0) {
                     //Si nouveau, alors upload/redimensionnement de la nouvelle image
                     $uploader = new Uploader('file');
-                    $uploader->validTypes = array('audio/ogg', 'audio/mpeg');
+                    $uploader->validTypes = ['audio/ogg', 'audio/mpeg'];
                     $uploader->setName($data['file']);
                     $uploader->uploadFile(DATA_FILE);
                     if ($case > 1) {

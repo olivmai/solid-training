@@ -4,12 +4,12 @@ require_once '../config/config.php';
 require_once '../config/config_db.php';
 require_once '../vendor/autoload.php';
 
-use App\Classes\Album\Repository as AlbumRepository;
 use App\Classes\Album\Collection as AlbumCollection;
-use App\Controllers\PublicController;
-use App\Classes\Tools\View;
+use App\Classes\Album\Repository as AlbumRepository;
 use App\Classes\Album\Ui as AlbumUi;
 use App\Classes\Music\Ui as MusicUi;
+use App\Classes\Tools\View;
+use App\Controllers\PublicController;
 
 // initialisation des variables
 $title = '';

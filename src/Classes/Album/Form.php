@@ -9,11 +9,11 @@ class Form
 
     public function __construct($album)
     {
-        $this->errors = array(
+        $this->errors = [
             'title' => '',
             'author' => '',
             'file' => '',
-        );
+        ];
 
         $this->album = $album;
     }
@@ -67,7 +67,7 @@ EOT;
 
     public function verify($mime)
     {
-        $allowedMimes = array('image/png', 'image/jpeg');
+        $allowedMimes = ['image/png', 'image/jpeg'];
         $flag = true;
         if ($this->album->getTitle() == '') {
             $this->errors['title'] = '<em class="label label-warning">Il faut entrer le titre.</em>';

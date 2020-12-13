@@ -10,3 +10,4 @@
 .idea/
 
 .behat.yml
+/behat.yml

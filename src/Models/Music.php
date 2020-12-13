@@ -19,7 +19,7 @@ class Music
         $this->file = $map['file'];
     }
 
-    public static function initialize($data = array())
+    public static function initialize($data = [])
     {
         if (isset($data['id'])) {
             $map['id'] = $data['id'];

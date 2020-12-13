@@ -11,7 +11,7 @@ class Repository
     {
         $db = Database::getInstance()->getConnexion();
         $sth = $db->prepare('SELECT * FROM songs WHERE id=:id');
-        $data = array('id' => $id);
+        $data = ['id' => $id];
         $sth->execute($data);
         $musicResult = $sth->fetch(PDO::FETCH_ASSOC);
 

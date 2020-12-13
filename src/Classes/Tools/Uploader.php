@@ -10,7 +10,7 @@ class Uploader
     private $type;
     public $directory = '';
     private $temporaryName;
-    public $validTypes = array();
+    public $validTypes = [];
     private $error = '';
 
     public function __construct($file)
@@ -73,8 +73,8 @@ class Uploader
     public function resize($origin, $destination, $width, $maxHeight)
     {
         $type = $this->getExtension();
-        $pngFamily = array('PNG', 'png');
-        $jpegFamily = array('jpeg', 'jpg', 'JPG');
+        $pngFamily = ['PNG', 'png'];
+        $jpegFamily = ['jpeg', 'jpg', 'JPG'];
         if (in_array($type, $jpegFamily)) {
             $type = 'jpeg';
         } elseif (in_array($type, $pngFamily)) {

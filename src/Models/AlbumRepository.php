@@ -12,7 +12,7 @@ class AlbumRepository
         $db = Database::getInstance()->getConnexion();
         $sth = $db->prepare('SELECT * FROM albums WHERE id=:id');
 
-        $data = array('id' => $id);
+        $data = ['id' => $id];
         $sth->execute($data);
         $line = $sth->fetch(PDO::FETCH_ASSOC);
 
@@ -25,12 +25,12 @@ class AlbumRepository
 
         $sth = $db->prepare('SELECT * FROM songs WHERE id_album=:id_album');
 
-        $data = array('id_album' => $id);
+        $data = ['id_album' => $id];
 
         $sth->execute($data);
 
         $lignes = $sth->fetchAll(PDO::FETCH_ASSOC);
-        $musiques = array();
+        $musiques = [];
         foreach ($lignes as $ligne) {
             $musiques[] = Music::initialize($ligne);
         }

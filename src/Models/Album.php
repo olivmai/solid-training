@@ -19,7 +19,7 @@ class Album
         $this->createdAt = $map['created_at'];
     }
 
-    public static function initialize($data = array())
+    public static function initialize($data = [])
     {
         if (isset($data['id'])) {
             $map['id'] = $data['id'];
