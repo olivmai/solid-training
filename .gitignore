@@ -1,0 +1,12 @@
+/config/config.php
+/config/config_db.php
+
+/vendor/
+
+/build/
+/data/
+
+.php_cs.cache
+.idea/
+
+.behat.yml
